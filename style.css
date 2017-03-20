@@ -24,7 +24,7 @@ header p, header h1 {
 }
 header p{
 	font-size: 20px;
-	color: #FF0000;
+	color: #ff0000;
 	text-shadow: 1px 1px 3px #FFFF00;
 }
 h1 {
@@ -35,7 +35,7 @@ section {
 	padding: 0 20%;
 }
 .about h2 {
-	color: #800000;
+	color: #800;
 	margin-top: 10px;
 	font-size: 28px;
 	font-family: cursive;
