@@ -1,0 +1,105 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+body {
+	margin: 0;
+	background-color: #CCC;
+	background: url(https://static.pexels.com/photos/41949/earth-earth-at-night-night-lights-41949.jpeg) 5% 85%;
+	font-family: 'Lato', sans-serif;
+}
+.container {
+	margin: 10px auto;
+	width: 900px;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+header {
+    padding: 30px;
+}
+header h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 48px;
+}
+header p, header h1 {
+    text-align: center;
+    font-family: cursive;
+}
+header p{
+	font-size: 20px;
+	color: #FF0000;
+	text-shadow: 1px 1px 3px #FFFF00;
+}
+h1 {
+	text-shadow: 2px 2px 5px #1E90FF;
+	color: #FF8C00;
+}
+section {
+	padding: 0 20%;
+}
+.about h2 {
+	color: #800000;
+	margin-top: 10px;
+	font-size: 28px;
+	font-family: cursive;
+	text-shadow: 2px 2px 5px #CCC;
+}
+.interests h2 {
+	color: #008080;
+	margin-top: 40px;
+	font-family: cursive;
+	text-shadow: 2px 2px 5px #CCC;
+}
+footer {
+	color: #40E0D0;
+	padding: 0 70px;
+	margin-top: 20px;
+	
+}
+footer a {
+	font-weight: bold;
+	font-size: 25px;
+	transition: color 3s, background 3s;
+}
+footer a:hover {
+	color: #FF8C00;
+	background: #FFF;
+}
+.row {
+	overflow: hidden;
+}
+.col-20 {
+	float: left;
+	width: 20%;
+	height: 70px;
+	text-align: center;
+}
+.row .col-20:nth-child(2n+1) {
+	font-weight: bold;
+	font-size: 28px;
+	margin: 20px 0;
+}
+.row .col-20:nth-child(2n+2) {
+	font-family: 'Lato', sans-serif;
+	color: white;
+}
+.row .col-20:nth-child(1) {
+	background: red;
+}
+.row .col-20:nth-child(2) {
+    background: blue;
+}
+.row .col-20:nth-child(3) {
+	background: yellow;
+}
+.row .col-20:nth-child(4) {
+	background: crimson;
+}
+.row .col-20:nth-child(5) {
+	background: green;
+}
+.row .col-20:nth-child(1) {
+    background: red;
+    margin-left: 20%;
+}
+.row .col-20:nth-child(2) {
+    background: blue;
+    margin-left: -40%
+}
