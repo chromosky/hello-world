@@ -1,0 +1,22 @@
+{
+  "name": "kodilla-katalog-starr",
+  "version": "1.0.0",
+  "description": "Example grunt project",
+  "main": "index.js",
+  "scripts": {
+    "test": "kodilla-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chromosky/hello-world.git"
+  },
+  "keywords": [
+    "grunt"
+  ],
+  "author": "Jan Wrotkowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chromosky/hello-world/issues"
+  },
+  "homepage": "https://github.com/chromosky/hello-world#readme"
+}
