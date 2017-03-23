@@ -1,0 +1,213 @@
+Co wlasciwie robilem...........?
+
+1. na pulpicie utworzylem pusty folder i nazwalem go "Testfolder", a sciezka do niego to: C:\Users\Jan\Desktop\Testfolder
+
+Teraz wedlug tego schematu: 
+
+         What do u need:
+
+    ><  Node js / npm (obviously )
+    ><  Grunt client (grunt-cli) - node package
+          > Usually a global install
+    ><  Grunt - node package
+          > Can be global or local installation
+    ><  Grunt plug-ins - node packages
+          > Download/ install as necessary
+    ><  grunt configuration - JS file
+          > gruntfile.js (default file name)
+
+Next - Working with grunt
+
+        Now we need
+
+    ><  Install necessary node packages
+    ><  Create Grunt (config) file
+          > gruntfile.js
+what is:      >> Entry point for the GRUNT task runner
+              >> Node module
+              >> Loads plug-ins
+              >> defines & configures tasks / targets
+    ><  Execute grunt file
+          > From command prompt
+          > Or from within your (supported) web dev. tool 
+
+2. zainstalowalem node na maszynie i sprawdzilem czy faktycznie jest zainstalowana i jaka wersja: 
+
+C:\Users\Jan>node -v
+v6.10.0
+
+3. zaionstalowalem node package manager (npm) i sprawdzilem jaka wersja:
+
+C:\Users\Jan>npm -v
+3.10.10
+
+4. zainstalowalem na maszynie grunt i sprawdzilem wersje:
+
+C:\Users\Jan>grunt --version  /*!!! wpisalem '--version' a nie '-v'*/
+grunt-cli v1.2.0
+grunt v1.0.1
+
+5. upewnilem sie ze moj folder jest pusty:
+
+C:\Users\Jan\Desktop\Testfolder>dir    ----> enter
+
+22.03.2017 09:31  <DIR>   .
+22.03.2017 09:31  <DIR>   ..
+              0 File(s)          0 bytes
+              2 Dir(s)  164 931 432 448 bytes free
+
+6. teraz po otwarciu folderu Testfolder tworze nowa aplikacje 'npm init'
+
+C:\Users\Jan\Desktop\Testfolder>npm init
+
+This utility will walk u through package.json file.....
+...name: (Testfolder)..... /*zostawilem to na pozniej*/
+
+7. teraz otworzylem nowy folder wewnatrz 'testfolder' i nazwalem go 'MyApp'
+
+C:\Users\Jan\Desktop\Testfolder>md MyApp   ----> enter
+C:\Users\Jan\Desktop\Testfolder>cd MyApp   ----> enter
+C:\Users\Jan\Desktop\Testfolder\MyApp>    teraz robie init dla MyApp
+C:\Users\Jan\Desktop\Testfolder\MyApp>npm init
+
+This utility will walk u through package.json file.....
+...name: (MyApp).....yes
+version: (1.0.0.)   ----> enter
+description: This is my simple application to test grunt
+entry point: (index.js)   ----> enter
+test command:   ----> enter
+git repository: ----> enter
+keywords:       ----> enter
+author: Jan
+license:        ----> enter
+
+...bla bla bla ...
+
+Is this ok? (yes)   ----> enter
+
+8. teraz wewnatrz folderu MyApp pojawil sie package.json
+
+9. wracam do otwartego folderu testfolder, zaznaczam folder MyApp i otwieram go za pomoca sublime text
+ wtedy na sidebar widze folder MyApp a wewnatrz niego package.json
+       MyApp
+         package.json
+10. teraz zainstalowalem grunt tylko i specjalnie dla tej aplikacji , zainstalowalem go lokalnie
+
+C:\Users\Jan\Desktop\Testfolder\MyApp>npm install grunt --save
+    dodalem nowy folder do MyApp: node_modules
+       MyApp
+         node_modules
+         package.json
+/*dzieki komendzie --save package.json had beed updated*/
+
+11. nastepnie zainstalowalem plug-in grunt-contrib-copy takze z update
+
+C:\Users\Jan\Desktop\Testfolder\MyApp>npm install grunt-contrib-copy --save
+
+12.  teraz w MyApp stworzylem folder 'dir1' z jakas zawartoscia oraz pusty folder 'dir2'.
+Mam zamiar wladowac zawartosc 'dir1' do 'dir2'.
+ w 'dir1' zrobilem nastepny nested-folder 'n1' oraz wrzucilem dwa zdjecia.
+nastepnie otworzylem folder 'n1' i tam zrobilem nastepny nested-folder 'n1.1' i dodalem zdjecie
+Do folderu n1.1 wrzucilem jeszcze jedno zdjecie:)
+
+13. nastepnie wewnatrz folderu MyApp stworzylem file "gruntfile.js"
+i zaczalem pisac, najpier function:
+ 
+   module.exports = function(grunt){};
+
+as part of this function:
+
+   module.exports = function(grunt){
+        grunt.initConfig({
+
+        });
+   };
+i dodac do tego json object for all the configuration:
+
+    module.exports = function(grunt){
+        grunt.initConfig({
+            pkg: grunt.file.readJSON('package.json'),
+            
+            copy: {                                             /* i okreslilem nasz task which is copy-task*/
+        
+            }
+         });
+     
+         grunt.loadNpmTasks('grunt-contrib-copy');              /* a takze plug-in ktorego uzyje*/
+    };
+
+pluginy mozna wyszukac wpisujac w przegladarke "grunt plugins" i wejsc na strone np. Plugins-Grunt: the JavaScript task Runner
+
+14. teraz dla zadania: copy wprowadzilem target i okreslilem jak dokladnie to kopiowanie ma przebiegac
+
+                t1: {
+                    src: 'dir1/*',
+                    dest: 'dir2/'
+                 }
+
+wiec wszystko razem wyglada mniej wiecej tak: 
+
+             module.exports = function(grunt){
+    grunt.initConfig({
+    	pkg: grunt.file.readJSON('package.json'),
+
+    	copy: {
+           t1: {
+           	  src: 'dir1/*',
+           	  dest: 'dir2/'
+           }
+         }
+    })
+
+    grunt.loadNpmTasks('grunt-contrib-copy');
+};
+ 
+teraz po zasejfowaniu przeszedlem back do konsoli
+
+C:\Users\Jan>cd\                                      ----> enter
+C:\>cd C:\Users\Jan\Desktop\Testfolder\MyApp          ----> enter
+C:\Users\Jan\Desktop\Testfolder\MyApp>dir             ----> enter
+
+Opens Directory of C:\Users\Jan\Desktop\testfolder\MyApp
+
+C:\Users\Jan\Desktop\Testfolder\MyApp>grunt --gruntfile gruntfile.js copy     ----> enter
+Running "copy:t1" (copy) task
+Created 1 directory, copied 2 files
+
+Done.                  /* sublime text gruntfile.js "src: 'dir1/*'
+
+           module.exports = function(grunt){
+    grunt.initConfig({
+    	pkg: grunt.file.readJSON('package.json'),
+
+    	copy: {
+           t1: {
+           	  src: 'dir1/*',
+           	  dest: 'dir2/'
+           }
+         }
+    })
+
+    grunt.loadNpmTasks('grunt-contrib-copy');
+}; 
+
+     Po modyfikacji:   "src: 'dir1/**'
+
+czyli:     
+           
+             module.exports = function(grunt){
+    grunt.initConfig({
+    	pkg: grunt.file.readJSON('package.json'),
+
+    	copy: {
+           t1: {
+           	  src: 'dir1/**',
+           	  dest: 'dir2/'
+           }
+         }
+    })
+  C:\Users\Jan\Desktop\Testfolder\MyApp>grunt --gruntfile gruntfile.js copy     ----> enter
+Running "copy:t1" (copy) task
+Created 3 directories, copied 4 files
+
+Done.          

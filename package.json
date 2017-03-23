@@ -1,19 +1,36 @@
 {
+<<<<<<< HEAD
   "name": "hello-world",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+=======
+  "name": "kodilla-katalog-starr",
+  "version": "1.0.0",
+  "description": "Example grunt project",
+  "main": "index.js",
+  "scripts": {
+    "test": "kodilla-test"
+>>>>>>> 5cf0aecd025d36cdaddc434b8d199d1c22555083
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chromosky/hello-world.git"
   },
+<<<<<<< HEAD
   "author": "Jan",
+=======
+  "keywords": [
+    "grunt"
+  ],
+  "author": "Jan Wrotkowski",
+>>>>>>> 5cf0aecd025d36cdaddc434b8d199d1c22555083
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chromosky/hello-world/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/chromosky/hello-world#readme",
   "dependencies": {
     "grunt": "^1.0.1"
@@ -25,4 +42,7 @@
     "grunt-sass": "^2.0.0"
   },
   "description": ""
+=======
+  "homepage": "https://github.com/chromosky/hello-world#readme"
+>>>>>>> 5cf0aecd025d36cdaddc434b8d199d1c22555083
 }
